@@ -176,16 +176,34 @@ class LinkedList:
 
         return count
 
+    def get_sum(self):
+        n = self.start_node
+
+        if n is None:
+            print("======List has no elements======")
+            return
+
+        sum = 0
+
+        while n is not None:
+            sum += n.item
+            n = n.ref
+
+        print(f"======Sum of List : {sum}======")
+
     def search_item(self, x):
         if self.start_node is None:
             print("======List has no elements======")
             return
 
+        i = 1
         n = self.start_node
         while n is not None:
             if n.item == x:
                 print("======Item found======")
+                print(f"======{x} at {i}======")
                 return True
+            i += 1
             n = n.ref
 
         print("======item not found======")
